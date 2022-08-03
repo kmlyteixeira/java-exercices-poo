@@ -103,15 +103,39 @@ public class ExercicioUm {
                 break;
             // 8) Crie um programa que teste se um valor é par ou ímpar
             case 8:
-                // parOuImpar(int valor)
+                int valor = 4;
+
+                boolean parOuImpar = parOuImpar(valor);
+
+                if (parOuImpar==false) {
+                    System.out.println("É impar");
+                } else {
+                    System.out.println("É par");
+                }
+
                 break;
             // 9) Crie um programa que compare dois valores Strings
             case 9:
-                // compareString(String stringUm, String stringDois)
+                String stringUm = "Java";
+                String stringDois = "JavaScript";
+
+                boolean compareString = compareString(stringUm, stringDois);
+
+                if (compareString==true) {
+                    System.out.println("São iguais!");
+                } else {
+                    System.out.println("Não são iguais!");
+                }
+
                 break;
             // 10) Crie um programa que tenha uma variável com ponto em String e converta seu valor para inteiro
             case 10:
-                // convertString(String valor);
+                String valorString = "10.5";
+                
+                int valorInt = convertString(valorString);
+
+                System.out.println("Valor convertido:" + valorInt);
+                
                 break;
             // 11) Crie um programa que receba o salário e diga o valor de imposto de renda conforme abaixo:
             // Base                     | Alíquota
@@ -122,11 +146,26 @@ public class ExercicioUm {
             // De 3.751,06 até 4.664,68 | 22,5%
             // Acima de 4.664,68        | 27,5%
             case 11:
-                // percentualImpostoSalario(double salario);
+                Scanner sc = new Scanner(System.in);
+
+                double salario = sc.nextDouble();
+                double valorImposto = percentualImpostoSalario(salario);
+
+                System.out.println(valorImposto);
+
                 break;
             // DESAFIO - Crie um programa que teste se um número é primo
             case 12:
-                // testePrimo(int valor)
+                int valorVerificar = 5;
+
+                boolean testePrimo = testePrimo(valorVerificar);
+
+                if (testePrimo==true) {
+                    System.out.println("É primo");
+                } else {
+                    System.out.println("Não é primo");
+                }
+                
                 break;
             default:
                 System.out.println("Operação inválida");
@@ -188,23 +227,60 @@ public class ExercicioUm {
     }
 
     public static boolean parOuImpar(int valor) {
-        return false;
+        if ((valor%2)==0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static boolean compareString(String stringUm, String stringDois) {
-        return false;
+
+        if (stringUm.equals(stringDois)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static int convertString(String valor) {
-        return 0;
+
+        int valorDouble = Integer.parseInt(valor);
+
+        return valorDouble;
     }
 
     public static double percentualImpostoSalario(double salario) {
-        return -1;
+
+        double imposto = 0;
+
+        if (salario <= 1903.98) {
+            imposto =  0.0;
+        } else if (salario >= 1903.99 && salario <= 2826.65){
+            imposto = salario*0.075;
+        } else if (salario >= 2826.66 && salario <= 3751.05) {
+            imposto = salario*0.15;
+        } else if (salario >= 3751.06 && salario <= 4664.68) {
+            imposto = salario*0.225;
+        } else if (salario >= 4664.68) {
+            imposto = salario*0.275;
+        }
+
+        return imposto;
     }
 
     public static boolean testePrimo(int valor) {
-        return false;
-    }
+        int count = 0;
+        for (int i = 1; i <= valor; i++) {
+            if (valor%i==0) {
+                count++;
+            }
+        }
 
+        if (count == 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
