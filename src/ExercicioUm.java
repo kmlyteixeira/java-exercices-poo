@@ -64,8 +64,8 @@ public class ExercicioUm {
                 break;
             // 4) Crie um programa que avalie se um valor é maior do que o dobro de outro valor
             case 4:
-                double base = 10;
-                double verificar = 35;
+                double base = 7;
+                double verificar = 4;
                 
                 boolean result = valorMaiorQueDobro(base, verificar);
 
@@ -93,8 +93,8 @@ public class ExercicioUm {
                 break;
             // 7) Crie um programa que calcule o percentual de imposto pago (`faturamento \ qtd imposto`)
             case 7:
-                double faturamento = 1000;
-                double qtdImposto = 50;
+                double faturamento = 20000;
+                double qtdImposto = 5000;
 
                 double percImposto = percentualImposto(faturamento, qtdImposto);
 
@@ -193,11 +193,9 @@ public class ExercicioUm {
 
     public static boolean valorMaiorQueDobro(double base, double verificar) {
 
-        double dobroBase = base*2;
-
-        if (verificar > dobroBase) 
+        if ((verificar*2)<base)
             return true;
-         else 
+        else 
             return false;
     }
 
@@ -221,7 +219,7 @@ public class ExercicioUm {
     }
 
     public static double percentualImposto(double faturamento, double qtdImposto) {
-        double percImposto = faturamento/qtdImposto;
+        double percImposto = (faturamento/qtdImposto);
 
         return percImposto;
     }
@@ -245,9 +243,11 @@ public class ExercicioUm {
 
     public static int convertString(String valor) {
 
-        int valorDouble = Integer.parseInt(valor);
+        double valorDouble = Double.parseDouble(valor);
 
-        return valorDouble;
+        int valorInt = (int) valorDouble;
+
+        return valorInt;
     }
 
     public static double percentualImpostoSalario(double salario) {
@@ -257,13 +257,13 @@ public class ExercicioUm {
         if (salario <= 1903.98) {
             imposto =  0.0;
         } else if (salario >= 1903.99 && salario <= 2826.65){
-            imposto = salario*0.075;
+            imposto = 7.5; //salario*0.075
         } else if (salario >= 2826.66 && salario <= 3751.05) {
-            imposto = salario*0.15;
+            imposto = 15;
         } else if (salario >= 3751.06 && salario <= 4664.68) {
-            imposto = salario*0.225;
+            imposto = 22.5;
         } else if (salario >= 4664.68) {
-            imposto = salario*0.275;
+            imposto = 27.5;
         }
 
         return imposto;
