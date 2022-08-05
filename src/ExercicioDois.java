@@ -28,17 +28,54 @@ public class ExercicioDois {
             menu = 0;
         }
 
+        Scanner sc = new Scanner(System.in);
+
         switch (menu) {
             // 1) Crie um programa que receba três notas calcule a média e diga se foi aprovado (`(nota1 + nota2 + nota3 / 3)`) e (`média maior que 7 para ser aprovado`).
             case 1:
-                // calculaMedia(double notaUm, double notaDois, double notaTres);
+
+                System.out.println("Insira suas três notas para verificar o resultado final:");
+                double notaUm = sc.nextDouble();
+                double notaDois = sc.nextDouble();
+                double notaTres = sc.nextDouble();
+
+                double media = calculaMedia(notaUm, notaDois, notaTres);
+
+                if (media > 7) {
+                    System.out.println("Você foi aprovado!");
+                } else {
+                    System.out.println("Você foi reprovado!");
+                }
+
                 break;
             // 2) Crie um programa que receba um número e indique o mês que representa.
             case 2:
-                // qualMes(int mes);
+                System.out.println("Insira o numero correspondente ao mês:");
+                int mes = sc.nextInt();
+
+                System.out.println(qualMes(mes));
+
                 break;
-            // 3) Crie um programa que simule um jogo da forca, com a entrada da palavra oculta, a quantidade de tentativas para acerto e depois solicite a entrada da palavra. A cada erro deve imprimir a quantidade de tentativas restantes e o 'membro' que foi marcado. Ao final deve imprimir se acertou ou não a palavra e se foi 'enforcado'.
+            /* 3) Crie um programa que simule um jogo da forca, com a entrada da palavra oculta, a quantidade de tentativas para acerto e depois solicite a entrada da palavra. 
+                A cada erro deve imprimir a quantidade de tentativas restantes e o 'membro' que foi marcado. Ao final deve imprimir se acertou ou não a palavra e se foi 'enforcado'. */
             case 3:
+                System.out.println("======= Jogo da Forca =======");
+                System.out.println("Insira a palavra oculta:");
+                String palavraOculta = sc.nextLine();
+                
+                System.out.println("OK. Serão 7 tentativas para acertar sua palavra oculta!");
+                int tentativas = 7;
+
+                int tamanhoPalavra = palavraOculta.length();
+                String letrasOcultas = new String(new char[tamanhoPalavra]).replace("\0","*");
+
+                for (int i = 0; i < 7; i++) {
+                    if (letrasOcultas.contains("*")) {
+                        /*CONTINA DAQUI*/
+                    }
+                }
+
+                System.out.print("Vamos começar inserindo uma letra: ");
                 // forca(String palavra, int tentativa, Scanner scanner);
                 break;
             // 4) Crie um programa que imprima a tabuada de 0 a 10.
@@ -84,15 +121,63 @@ public class ExercicioDois {
             default:
                 System.out.println("Operação inválida");
                 break;
+
         }
+
+        sc.close();
     }
 
     public static double calculaMedia(double notaUm, double notaDois, double notaTres) {
-        return 0;
+
+        double media = (notaUm + notaDois + notaTres)/3;
+
+        return media;
     }
 
     public static String qualMes(int mes) {
-        return "";
+
+        String mesString = "";
+        switch (mes) {
+            case 1:
+                mesString = "Janeiro";
+                break;
+            case 2: 
+                mesString = "Fevereiro";
+                break;
+            case 3:
+                mesString = "Março"; 
+                break;
+            case 4: 
+                mesString = "Abril";
+                break;
+            case 5: 
+                mesString = "Maio";
+                break;
+            case 6: 
+                mesString = "Junho";
+                break;
+            case 7: 
+                mesString = "Julho";
+                break;
+            case 8: 
+                mesString = "Agosto";
+                break;
+            case 9: 
+                mesString = "Setembro";
+                break;
+            case 10: 
+                mesString = "Outubro";
+                break;
+            case 11: 
+                mesString = "Novembro";
+                break;
+            case 12: 
+                mesString = "Dezembro";
+                break;
+            default:
+                break;
+        }
+        return mesString;
     }
 
     public static int[] tabuada(int numero) {
