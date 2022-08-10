@@ -69,13 +69,11 @@ public class ExercicioDois {
                 int tamanhoPalavra = palavraOculta.length();
                 String letrasOcultas = new String(new char[tamanhoPalavra]).replace("\0","*");
 
-                for (int i = 0; i < 7; i++) {
-                    if (letrasOcultas.contains("*")) {
-                        /*CONTINA DAQUI*/
-                    }
-                }
+                System.out.println(letrasOcultas);
 
-                System.out.print("Vamos começar inserindo uma letra: ");
+                System.out.print("Vamos começar inserindo uma letra: ");                
+
+
                 // forca(String palavra, int tentativa, Scanner scanner);
                 break;
             // 4) Crie um programa que imprima a tabuada de 0 a 10.

@@ -262,7 +262,7 @@ public class ExercicioUm {
             imposto = 15;
         } else if (salario >= 3751.06 && salario <= 4664.68) {
             imposto = 22.5;
-        } else if (salario >= 4664.68) {
+        } else if (salario >= 4664.69) {
             imposto = 27.5;
         }
 
