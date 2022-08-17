@@ -32,9 +32,14 @@ public class ExercicioUm {
             // 1) Crie um programa que calcule a média (`(nota1 + nota2 + nota3 / 3)`)
             case 1:
                 
-                double notaUm = 1.5;
-                double notaDois = 5.0;
-                double notaTres = 10;
+                System.out.println("=== Calculo da média ===");
+
+                System.out.println("Insira a 1º nota: "); 
+                double notaUm = scanner.nextDouble();
+                System.out.println("Insira a 2º nota: ");
+                double notaDois = scanner.nextDouble();
+                System.out.println("Insira a 3º nota: ");
+                double notaTres = scanner.nextDouble();
 
                 double media = media(notaUm, notaDois, notaTres);
 
@@ -43,8 +48,11 @@ public class ExercicioUm {
                 break;
             // 2) Crie um programa que calcule a área (`lado1 * lado2`)
             case 2:
-                double ladoUm = 5;
-                double ladoDois = 2;
+                System.out.println("=== Calculo da área ===");
+                System.out.println("Insira o 1º lado: ");
+                double ladoUm = scanner.nextDouble();
+                System.out.println("Insira o 2º lado: ");
+                double ladoDois = scanner.nextDouble();
 
                 double area = area(ladoUm, ladoDois);
 
@@ -53,9 +61,13 @@ public class ExercicioUm {
                 break;
             // 3) Crie um programa que calcule o volume (`largura * altura * profundidade`)
             case 3:
-                double largura = 10;
-                double altura = 5;
-                double profundidade = 3;
+                System.out.println("=== Calculo do volume ===");
+                System.out.println("Insira a largura: ");
+                double largura = scanner.nextDouble();
+                System.out.println("Insira a altura: ");
+                double altura = scanner.nextDouble();
+                System.out.println("Insira a profundidade: ");
+                double profundidade = scanner.nextDouble();
 
                 double volume = volume(largura, altura, profundidade);
 
@@ -64,8 +76,11 @@ public class ExercicioUm {
                 break;
             // 4) Crie um programa que avalie se um valor é maior do que o dobro de outro valor
             case 4:
-                double base = 7;
-                double verificar = 4;
+                System.out.println("=== Valor é maior do que o dobro de outro valor ===");
+                System.out.println("Insira o 1º valor: ");
+                double base = scanner.nextDouble();
+                System.out.println("Insira o 2º valor: ");
+                double verificar = scanner.nextDouble();
                 
                 boolean result = valorMaiorQueDobro(base, verificar);
 
@@ -74,17 +89,26 @@ public class ExercicioUm {
                 break;
             // 5) Crie um programa que calcule _bhaskara_
             case 5:
-                int a = 6;
-                int b = 2;
-                int c = 0;
+                System.out.println("=== Cálculo de Bhaskara ===");
+
+                System.out.println("Insira o valor de A: ");
+                int a = scanner.nextInt();
+                System.out.println("Insira o valor de B");
+                int b = scanner.nextInt();
+                System.out.println("Insira o valor de C");
+                int c = scanner.nextInt();
 
                 System.out.println(bhaskara(a, b, c));
 
                 break;
             // 6) Crie um programa que calcule a velocidade média de uma viagem (`distancia (km) / tempo (h)`)
             case 6:
-                double distancia = 180;
-                double tempo = 5;
+                System.out.println("=== Velocidade Média ===");
+
+                System.out.println("Insira a distância: ");
+                double distancia = scanner.nextDouble();
+                System.out.println("Insira o tempo: ");
+                double tempo = scanner.nextDouble();
 
                 double mediaViagem = mediaViagem(distancia, tempo);
 
@@ -93,8 +117,12 @@ public class ExercicioUm {
                 break;
             // 7) Crie um programa que calcule o percentual de imposto pago (`faturamento \ qtd imposto`)
             case 7:
-                double faturamento = 20000;
-                double qtdImposto = 5000;
+                System.out.println("=== Percentual de Imposto ===");
+
+                System.out.println("Insira o faturamento: ");
+                double faturamento = scanner.nextDouble();
+                System.out.println("Insira a quantidade de imposto: ");
+                double qtdImposto = scanner.nextDouble();
 
                 double percImposto = percentualImposto(faturamento, qtdImposto);
 
@@ -103,7 +131,9 @@ public class ExercicioUm {
                 break;
             // 8) Crie um programa que teste se um valor é par ou ímpar
             case 8:
-                int valor = 4;
+                System.out.println("=== Valor é par ou ímpar ===");
+                System.out.println("Insira o valor: ");
+                int valor = scanner.nextInt();
 
                 boolean parOuImpar = parOuImpar(valor);
 
@@ -116,8 +146,11 @@ public class ExercicioUm {
                 break;
             // 9) Crie um programa que compare dois valores Strings
             case 9:
-                String stringUm = "Java";
-                String stringDois = "JavaScript";
+                System.out.println("=== Comparar dois valores de String ===");
+                System.out.println("Insira o 1º valor: ");
+                String stringUm = scanner.nextLine();
+                System.out.println("Insira o 2º valor: ");
+                String stringDois = scanner.nextLine();
 
                 boolean compareString = compareString(stringUm, stringDois);
 
@@ -130,7 +163,10 @@ public class ExercicioUm {
                 break;
             // 10) Crie um programa que tenha uma variável com ponto em String e converta seu valor para inteiro
             case 10:
-                String valorString = "10.5";
+                System.out.println("=== Converter String para Inteiro ===");
+
+                System.out.println("Insira o valor: ");
+                String valorString = scanner.nextLine();
                 
                 int valorInt = convertString(valorString);
 
@@ -146,9 +182,11 @@ public class ExercicioUm {
             // De 3.751,06 até 4.664,68 | 22,5%
             // Acima de 4.664,68        | 27,5%
             case 11:
-                Scanner sc = new Scanner(System.in);
+                System.out.println("=== Imposto de Renda ===");
 
-                double salario = sc.nextDouble();
+                System.out.println("Insira o salário: ");
+                double salario = scanner.nextDouble();
+            
                 double valorImposto = percentualImpostoSalario(salario);
 
                 System.out.println(valorImposto);
@@ -156,7 +194,10 @@ public class ExercicioUm {
                 break;
             // DESAFIO - Crie um programa que teste se um número é primo
             case 12:
-                int valorVerificar = 5;
+                System.out.println("=== Número é primo ===");
+
+                System.out.println("Insira o número: ");
+                int valorVerificar = scanner.nextInt();
 
                 boolean testePrimo = testePrimo(valorVerificar);
 
