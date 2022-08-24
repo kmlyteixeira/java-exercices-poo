@@ -260,7 +260,7 @@ public class ExercicioUm {
     }
 
     public static double percentualImposto(double faturamento, double qtdImposto) {
-        double percImposto = (faturamento/qtdImposto);
+        double percImposto = ((qtdImposto*100)/faturamento);
 
         return percImposto;
     }

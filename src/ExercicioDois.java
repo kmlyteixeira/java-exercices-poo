@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ExercicioDois {
@@ -62,6 +63,8 @@ public class ExercicioDois {
                 System.out.println("======= Jogo da Forca =======");
                 System.out.println("Insira a palavra oculta:");
                 String palavraOculta = sc.nextLine();
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
                 
                 System.out.println("OK. Serão 7 tentativas para acertar sua palavra oculta!");
                 int tentativas = 7;
@@ -71,25 +74,62 @@ public class ExercicioDois {
 
                 System.out.println(letrasOcultas);
 
-                System.out.print("Vamos começar inserindo uma letra: ");                
+                System.out.print("Vamos começar inserindo uma letra: ");
+                String letra = sc.nextLine();
+                
+                while (tentativas > 0 && letrasOcultas.contains("*")) {
+                    int index = palavraOculta.indexOf(letra);
+                    if (index == -1) {
+                        tentativas--;
+                        System.out.println("Letra incorreta! Você ainda tem " + tentativas + " tentativas.");
+                    } else {
+                        letrasOcultas = letrasOcultas.substring(0, index) + letra + letrasOcultas.substring(index + 1);
+                        System.out.println(letrasOcultas);
+                    }
+                    if (letrasOcultas.contains("*")) {
+                        System.out.print("Insira uma nova letra: ");
+                        letra = sc.nextLine();
+                    }
+                }
 
+                if (tentativas == 0) {
+                    System.out.println("Você foi enforcado! A palavra era: " + palavraOculta);
+                } else {
+                    System.out.println("Parabéns! Você acertou a palavra: " + palavraOculta);
+                }
 
-                // forca(String palavra, int tentativa, Scanner scanner);
                 break;
             // 4) Crie um programa que imprima a tabuada de 0 a 10.
             case 4:
-                // tabuada(int numero);
+                System.out.println("Insira o número para ver a tabuada:");
+                int numero = sc.nextInt();
+
+                tabuada(numero);
                 break;
             // 5) Crie um programa que receba uma String e imprima linha a linha suas letras.
             case 5:
-                // letraALetra(String palavra);
+                
+                System.out.println("Insira a palavra a ser separada:");
+                String palavra = sc.nextLine();
+                
+                letraALetra(palavra);
                 break;
             // 6) Crie um programa que de a soma de todos os números ímpares e múltiplos de 7 entre 1 e 500.
             case 6:
-                // numerosImpares();
+                System.out.println("A soma de todos os números ímpares e múltiplos de 7 entre 1 e 500 é" + numerosImpares());
                 break;
             // 7) Crie um programa que tenha como entrada as notas de um aluno. Somente se encerrará quando for inserida uma nota negativa. Ao final deverá informar a média das notas.
             case 7:
+                double nota = 0.0;
+                ArrayList<Double> notas = new ArrayList<>();
+
+                while (nota >= 0) {
+                    System.out.println("Insira a nota do aluno: ");
+                    nota = sc.nextDouble();
+                    
+                    notas.add(nota);
+                }
+                
                 // calculaMedia(double[] notas);
                 break;
             // 8) Crie um programa que receba um valor e imprima o fatorial desse número. Ex.: 3! = 3 x 2 x 1 = 6.
@@ -179,15 +219,39 @@ public class ExercicioDois {
     }
 
     public static int[] tabuada(int numero) {
-        return new int[10];
+
+        int[] tabuada = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            tabuada[i] = numero * (i+1);
+            System.out.println(numero + " x " + (i+1) + " = " + tabuada[i]);
+        }
+
+        return tabuada;
     }
 
     public static char[] letraALetra(String palavra) {
-        return new char[1];
+
+        char[] letras = new char[palavra.length()];
+
+        for (int i = 0; i < palavra.length(); i++) {
+            letras[i] = palavra.charAt(i);
+            System.out.println(letras[i]);
+        }
+
+        return letras;
     }
 
     public static int numerosImpares() {
-        return 0;
+        int soma = 0;
+
+        for (int i = 1; i <= 500; i++) {
+            if ((i%2 != 0)&&(i%7==0)) {
+                soma += i;
+            }
+        }
+
+        return soma;
     }
 
     public static double calculaMedia(double[] notas) {
