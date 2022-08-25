@@ -130,11 +130,14 @@ public class ExercicioDois {
                     notas.add(nota);
                 }
                 
-                // calculaMedia(double[] notas);
                 break;
             // 8) Crie um programa que receba um valor e imprima o fatorial desse número. Ex.: 3! = 3 x 2 x 1 = 6.
             case 8:
-                // fatorial(int numero);
+
+                System.out.println("Insira um numero para calcular o fatorial:");
+                int number = sc.nextInt();
+
+                fatorial(number);
                 break;
             // 9) Crie um programa que receba a altera e o peso e calcule o IMC:
             // 
@@ -147,11 +150,38 @@ public class ExercicioDois {
             // Entre 35,0 e 39,9 | Obesidade Grau II
             // Acima de 40 | Obesidade Grau III (mórbida)
             case 9:
-                // imc(double altura, double peso);
+
+                System.out.println("Insira a altura:");
+                double altura = sc.nextDouble();
+                System.out.println("Insira o peso:");
+                double peso = sc.nextDouble();
+                double imc = imc(altura, peso);
+
+                if (imc > 18.5) {
+                    System.out.println("Abaixo do peso");
+                } else if (imc >= 18.6 && imc <= 24.9) {
+                    System.out.println("Peso Ideal");
+                } else if (imc >= 25.0 && imc <= 29.9){
+                    System.out.println("Levemente acima do peso");
+                } else if (imc >= 30.0 && imc <= 34.9){
+                    System.out.println("Obesidade Grau I");
+                } else if (imc >= 35.0 && imc <= 39.9){
+                    System.out.println("Obesidade Grau II");
+                } else if (imc >= 40.0){
+                    System.out.println("Obesidade Grau III (mórbida)");
+                }
+
                 break;
             // 10) Crie um programa que receba dois valores e solicite a operação a ser realizada (+ - * /). Ao final imprima o resultado.
             case 10:
-                // operador(int valorUm, int valorDois, char operacao);
+                System.out.println("Insira o primeiro numero:");
+                int valorUm = sc.nextInt();
+                System.out.println("Insira o segundo numero:");
+                int valorDois = sc.nextInt();
+                System.out.println("Insira a operação (+ - * /):");
+                char operacao = sc.next().charAt(0);
+                operador(valorUm, valorDois, operacao);
+
                 break;
             // DESAFIO: Crie um programa que receba um valor em reais e determine qual o mínimo de notas necessárias para entregá-lo. <br> Notas: R$ 200, R$ 100, R$ 50, R$ 10, R$ 5, R$ 1 <br> Exemplo: R$ 15 -> 1 nota de R$ 10 e 1 nota de R$ 5
             case 11:
@@ -255,22 +285,72 @@ public class ExercicioDois {
     }
 
     public static double calculaMedia(double[] notas) {
-        return 0;
+
+        double sum = 0;
+
+        for (int i = 0; i < notas.length; i++) {
+            sum += notas[i];
+        }
+
+        return sum/notas.length;
     }
 
     public static int fatorial(int numero) {
-        return 0;
+
+        int fatorial = numero;
+
+        System.out.print("Fatorial: " + numero + "! = ");
+
+        for (int i = 1; i < numero; i++) {
+            fatorial *= i;
+            System.out.println(i + (i != 1 ? "x" : ""));
+        }
+        System.out.println("=");
+        return fatorial;
     }
 
     public static double imc(double altura, double peso) {
-        return 0;
+
+        double imc = peso / (altura * 2);
+
+        return imc;
     }
 
     public static double operador(int valorUm, int valorDois, char operacao) {
-        return 0;
+
+        double resultado = 0;
+
+        switch (operacao) {
+            case '+':
+                resultado = valorUm + valorDois;
+                break;
+            case '-':
+                resultado = valorUm - valorDois;
+                break;
+            case '*':
+                resultado = valorUm * valorDois;
+                break;
+            case '/':
+                resultado = valorUm / valorDois;
+                break;
+            default:
+                System.out.println("Operação inválida");
+                break;
+        }
+
+        return resultado;
     }
 
     public static int[] notasNecessarias(int valor) {
-        return new int[6];
+
+        double[] notas = new double[] { 200, 100, 50, 10, 5, 1 };
+        int[] valorNotas = new int[6];
+
+        for (int i = 0; i < notas.length; i++) {
+            valorNotas[i] = (int) (valor/notas[i]);
+            valor -= valorNotas[i] * notas[i];
+        }
+
+        return valorNotas;
     }
 }
