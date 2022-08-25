@@ -1,14 +1,13 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigInteger;
-import java.util.Random;
 import java.util.Scanner;
 
 public class ExercicioTres {
-    public static void call(Scanner scanner) {
+    public static void call(Scanner scanner) throws IOException {
         System.out.println("=== EXERCÍCIOS - LISTA 3 ===");
 
         System.out.println("+-------------------------------------------------------+");
@@ -36,15 +35,26 @@ public class ExercicioTres {
         switch (menu) {
             // 1) Crie um programa que receba um valor e calcule a tabuada deste valor, salvando seu resultado em um arquivo de texto.
             case 1:
-                // tabuada(int number);
+                System.out.println("Insira um número para calcular a tabuada: ");
+                int numero = scanner.nextInt();
+                tabuada(numero);
+
+                System.out.println("Tabuada salva em arquivo de texto na pasta \\txt");
                 break;
             // 2) Crie um programa que leia e imprima no console todas as linhas de um arquivo de texto.
             case 2:
-                // lerArquivoTexto(String arquivo);
+                System.out.println("Lendo arquivo de texto na pasta \\txt");
+                String arquivo = "txt\\tabuada.txt";
+                lerArquivoTexto(arquivo);
+
                 break;
             // 3) Crie um programa que receba como entrada da classe Main dois valores numéricos e calcule as operações básicas com eles.
             case 3:
-                // operacoesBasicas(int numeroUm, int numeroDois)
+                System.out.println("Insira dois números para calcular as operações básicas: ");
+                int numeroUm = scanner.nextInt();
+                int numeroDois = scanner.nextInt();
+                operacoesBasicas(numeroUm, numeroDois);
+
                 break;
             // 4) Crie um programa que execute uma operação de Exponenciação com o valor inteiro com precisão arbitrária.
             case 4:
@@ -85,16 +95,43 @@ public class ExercicioTres {
         
     }
 
-    public static void tabuada(int numero) {
+    public static void tabuada(int numero) throws IOException {
+
+        FileWriter arquivo = new FileWriter("txt\\tabuada.txt");
+        PrintWriter gravarArquivo = new PrintWriter(arquivo);
         
+        int[] tabuada = new int[10];
+
+        gravarArquivo.println("Resultado Tabuada de " + numero);
+
+        for (int i = 0; i < 10; i++) {
+            tabuada[i] = numero * (i+1);
+            gravarArquivo.println(numero + " x " + (i+1) + " = " + tabuada[i]);
+        }
+
+        arquivo.close();
     }
 
-    public static void lerArquivoTexto(String arquivo) {
+    public static void lerArquivoTexto(String arquivo) throws FileNotFoundException {
+
+        Scanner arq = new Scanner(new FileReader(arquivo));
         
+        while (arq.hasNextLine()) {
+            String linha = arq.nextLine();
+            System.out.println(linha);
+        }
     }
 
     public static int[] operacoesBasicas(int numeroUm, int numeroDois) {
-        return new int[4];
+
+        int[] operacoes = new int[4];
+
+        operacoes[0] = numeroUm + numeroDois;
+        operacoes[1] = numeroUm - numeroDois;
+        operacoes[2] = numeroUm * numeroDois;
+        operacoes[3] = numeroUm / numeroDois;
+
+        return operacoes;
     }
 
     public static BigInteger bigIntExpo(BigInteger base, int pow) {

@@ -57,7 +57,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void lerArquivoTextoTest() throws URISyntaxException {
+    public void lerArquivoTextoTest() throws URISyntaxException, FileNotFoundException {
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/arquivo_para_leitura.txt").toURI());
             ExercicioTres.lerArquivoTexto(file.toPath().toString());

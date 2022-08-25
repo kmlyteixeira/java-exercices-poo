@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ExercicioDois {
@@ -63,7 +64,7 @@ public class ExercicioDois {
                 System.out.println("======= Jogo da Forca =======");
                 System.out.println("Insira a palavra oculta:");
                 String palavraOculta = sc.nextLine();
-                System.out.print("\033[H\033[2J");
+                System.out.print("\033[H\033[2J"); /*Apagar o terminal*/
                 System.out.flush();
                 
                 System.out.println("OK. Serão 7 tentativas para acertar sua palavra oculta!");
@@ -185,7 +186,13 @@ public class ExercicioDois {
                 break;
             // DESAFIO: Crie um programa que receba um valor em reais e determine qual o mínimo de notas necessárias para entregá-lo. <br> Notas: R$ 200, R$ 100, R$ 50, R$ 10, R$ 5, R$ 1 <br> Exemplo: R$ 15 -> 1 nota de R$ 10 e 1 nota de R$ 5
             case 11:
-                // notasNecessarias(int valor);
+                System.out.println("Insira o valor em reais:");
+                int valor = sc.nextInt();
+                String valorString = Arrays.toString(notasNecessarias(valor));
+
+                System.out.println(valorString);
+
+                break;
             default:
                 System.out.println("Operação inválida");
                 break;
