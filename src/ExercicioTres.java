@@ -4,6 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExercicioTres {
@@ -58,15 +61,35 @@ public class ExercicioTres {
                 break;
             // 4) Crie um programa que execute uma operação de Exponenciação com o valor inteiro com precisão arbitrária.
             case 4:
-                // bigIntExpo(BigInteger base, int pow);
+                System.out.println("Insira um número para calcular a exponenciação: ");
+                BigInteger base = scanner.nextBigInteger();
+                System.out.println("Insira o expoente: ");
+                int pow = scanner.nextInt();
+
+                System.out.println("Resultado: " + bigIntExpo(base, pow));
+                
                 break;
             // 5) Crie um programa que receba o nome de 5 pessoas e aleatorize eles.
             case 5:
-                // aleatorizarPessoas();
+
+                String[] nomes = new String[5];
+
+                System.out.println("Insira 5 nomes para gerar um nome aleatório: ");
+                
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("Nome " + (i + 1) + ": ");
+                    nomes[i] = scanner.nextLine();
+                }
+
+                aleatorizarPessoas(nomes);
                 break;
             // 6) Crie um programa que calcule o raio e a área de uma circunferência (`C = 2πr` e `A = π(r²)`).
             case 6:
-                // areaECircunferencia(double raio);
+                System.out.println("Insira o raio da circunferência: ");
+                double raio = scanner.nextDouble();
+
+                System.out.println(areaECircunferencia(raio));;
+
                 break;
             // 7) Crie um programa que avalie se um arquivo de texto possui a string "JAVA".
             case 7:
@@ -135,15 +158,31 @@ public class ExercicioTres {
     }
 
     public static BigInteger bigIntExpo(BigInteger base, int pow) {
-        return base;
+
+        BigInteger resultado = base.pow(pow);
+
+        return resultado;
     }
 
     public static void aleatorizarPessoas(String pessoas[]) {
+
+        List <String> lista = Arrays.asList(pessoas);
+
+        Collections.shuffle(lista);
+        lista.toArray(pessoas);
+
+        System.out.println("Lista Emabaralhada: " + Arrays.toString(pessoas));
         
     }
 
     public static double[] areaECircunferencia(double raio) {
-        return new double[2];
+        //`C = 2πr` e `A = π(r²)`)
+        double[] areaECircunferencia = new double[2];
+
+        areaECircunferencia[0] = (2 * Math.PI) * raio;
+        areaECircunferencia[1] = Math.PI * Math.pow(raio, 2);
+
+        return areaECircunferencia;
     }
 
     public static boolean hasJava(String arquivo) {
