@@ -47,7 +47,7 @@ public class ExercicioTres {
             // 2) Crie um programa que leia e imprima no console todas as linhas de um arquivo de texto.
             case 2:
                 System.out.println("Lendo arquivo de texto na pasta \\txt");
-                String arquivo = "txt\\tabuada.txt";
+                String arquivo = "C:\\Users\\kemily.rosa\\Documents\\java-exercices-poo\\txt\\exercicio_tres_tabuada.txt";
                 lerArquivoTexto(arquivo);
 
                 break;
@@ -93,11 +93,23 @@ public class ExercicioTres {
                 break;
             // 7) Crie um programa que avalie se um arquivo de texto possui a string "JAVA".
             case 7:
-                // hasJava(String arquivo);
+                System.out.println("Insira o caminho do arquivo para verificar se possui JAVA: ");
+                String caminho = scanner.nextLine();
+                hasJava(caminho);
+
+                if (hasJava(caminho) == true) {
+                    System.out.println("O arquivo possui JAVA");
+                } else {
+                    System.out.println("O arquivo não possui JAVA");
+                }
+
                 break;
             // 8) Crie um programa que leia as linhas de um arquivo e imprima no console apenas os 10 primeiros digitos de cada linha.
             case 8:
-                // dezDigitos()
+                System.out.println("Insira o caminho do arquivo para ler os 10 primeiros dígitos: ");
+                String caminhoArquivo = scanner.nextLine();
+                dezDigitos(caminhoArquivo);
+                
                 break;
             // 9) Crie um programa que receba como entrada da classe Main dois valores numéricos e calcule a área dos valores (`area = lado1 * lado2`).
             case 9:
@@ -120,7 +132,7 @@ public class ExercicioTres {
 
     public static void tabuada(int numero) throws IOException {
 
-        FileWriter arquivo = new FileWriter("txt\\tabuada.txt");
+        FileWriter arquivo = new FileWriter("C:\\Users\\kemily.rosa\\Documents\\java-exercices-poo\\txt\\exercicio_tres_tabuada.txt");
         PrintWriter gravarArquivo = new PrintWriter(arquivo);
         
         int[] tabuada = new int[10];
@@ -185,11 +197,28 @@ public class ExercicioTres {
         return areaECircunferencia;
     }
 
-    public static boolean hasJava(String arquivo) {
+    public static boolean hasJava(String arquivo) throws FileNotFoundException {
+
+        Scanner text = new Scanner(new FileReader(arquivo));
+
+        while (text.hasNextLine()) {
+            String linha = text.nextLine();
+            if (linha.contains("JAVA")) {
+                return true;
+            }
+        }
+
         return false;
     }
 
-    public static void dezDigitos(String arquivo) {
+    public static void dezDigitos(String arquivo) throws FileNotFoundException {
+
+        Scanner text = new Scanner(new FileReader(arquivo));
+
+        while (text.hasNextLine()) {
+            String linha = text.nextLine();
+            System.out.println(linha.substring(0, 10));
+        }
         
     }
 
