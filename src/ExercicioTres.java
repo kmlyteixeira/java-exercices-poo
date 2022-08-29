@@ -113,11 +113,19 @@ public class ExercicioTres {
                 break;
             // 9) Crie um programa que receba como entrada da classe Main dois valores numéricos e calcule a área dos valores (`area = lado1 * lado2`).
             case 9:
-                // calculaArea(double numeroUm, double numeroDois);
+                System.out.println("Insira dois números para calcular a área: ");
+                int localUm = scanner.nextInt();
+                int localDois = scanner.nextInt();
+                
+                System.out.println("Área: " + calculaArea(localUm, localDois));
+
                 break;
             // 10) Crie um programa que receba como entrada da classe Main o nome de um arquivo de texto que contenha valores numéricos e some todos os valores, imprimindo no console a soma.
             case 10:
-                // somaValoresArquivo(String arquivo);
+                System.out.println("Insira o caminho do arquivo para somar os valores: ");
+                String caminhoArquivoSoma = scanner.nextLine();
+                
+                System.out.println("Soma: " + somaValoresArquivo(caminhoArquivoSoma));
                 break;
             // ## DESAFIO - Crie um Jogo da Forca com Arquivos de Texto**
             case 11:
@@ -136,9 +144,6 @@ public class ExercicioTres {
         PrintWriter gravarArquivo = new PrintWriter(arquivo);
         
         int[] tabuada = new int[10];
-
-        gravarArquivo.println("Resultado Tabuada de " + numero);
-
         for (int i = 0; i < 10; i++) {
             tabuada[i] = numero * (i+1);
             gravarArquivo.println(numero + " x " + (i+1) + " = " + tabuada[i]);
@@ -216,18 +221,31 @@ public class ExercicioTres {
         Scanner text = new Scanner(new FileReader(arquivo));
 
         while (text.hasNextLine()) {
-            String linha = text.nextLine();
+            String linha = text.nextLine().substring(0, 10);
             System.out.println(linha.substring(0, 10));
         }
         
     }
 
     public static double calculaArea(double numeroUm, double numeroDois) {
-        return 0;
+
+        double area = numeroUm * numeroDois;
+
+        return area;
     }
 
-    public static double somaValoresArquivo(String arquivo) {
-        return 0;
+    public static double somaValoresArquivo(String arquivo) throws FileNotFoundException {
+
+        Scanner valores = new Scanner(new FileReader(arquivo));
+        double soma = 0;
+
+        while (valores.hasNextLine()) {
+            String linha = valores.nextLine();
+            double valor = Double.parseDouble(linha);
+            soma += valor;
+        }
+
+        return soma;
     }
 
     public static void forcaComTxt() {

@@ -126,7 +126,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void somaValoresArquivo() throws URISyntaxException{
+    public void somaValoresArquivo() throws URISyntaxException, FileNotFoundException{
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/soma_valores.txt").toURI());
             assertEquals(10, ExercicioTres.somaValoresArquivo(file.toPath().toString()), 0.0003f);
