@@ -114,20 +114,43 @@ public class ExercicioQuatro {
                 
                 break;
             // 7) Crie um programa que simule a fila de atendimento de um banco.
+            /*
+             - Atendimento normal
+             - Atendimento preferencial 
+             */
             case 7:
                 // filaBanco();
                 break;
             // 8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano.
             case 8:
-                // double temperaturaMedia(double[] temperaturas);
+                double[] temperaturas = new double[12];
+
+                for (int i = 0; i < temperaturas.length; i++) {
+                    System.out.println("Informe a temperatura média do mês " + (i + 1));
+                    temperaturas[i] = scanner.nextDouble();
+                }
+
+                System.out.println("A temperatura média do ano é: " + temperaturaMedia(temperaturas));
                 break;
             // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os valores intercalados desses dois arrays, ao final, imprima os 3.
             case 9:
-                // alterarArray(int[] listaUm, int[] listaDois);
+                int[] arrayUm = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                int[] arrayDois = new int[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+                System.out.println("Array 1: " + Arrays.toString(arrayUm));
+                System.out.println("Array 2: " + Arrays.toString(arrayDois));
+                System.out.println("Array 3: " + Arrays.toString(alternarArray(arrayUm, arrayDois)));
+
                 break;
             // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses valores e imprima os valores que são inferiores a esta média.
             case 10:
-                // mediaVinte(int[] valores);
+                int[] valores = new int[20];
+
+                for (int i = 0; i < valores.length; i++) {
+                    System.out.println("Informe o valor " + (i + 1));
+                    valores[i] = scanner.nextInt();
+                }
+                mediaVinte(valores);
                 break;
             // DESAFIO
             case 11:
@@ -197,15 +220,44 @@ public class ExercicioQuatro {
     }
     // 8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano.
     public static double temperaturaMedia(double[] temperaturas) {
-        return 0;
+
+        double soma = 0;
+        for (int i = 0; i < temperaturas.length; i++) {
+            soma += temperaturas[i];
+        }
+
+        double media = soma / temperaturas.length;
+
+        return media;
     }
     // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os valores intercalados desses dois arrays, ao final, imprima os 3.
     public static int[] alternarArray(int[] listaUm, int[] listaDois) {
-        return new int[20];
+
+        int[] arrayTres = new int[listaUm.length + listaDois.length];
+
+        for (int i = 0; i < arrayTres.length; i++) {
+            arrayTres[i] = listaUm[i];
+            arrayTres[i + 1] = listaDois[i];
+        }
+
+        return arrayTres;
     }
     // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses valores e imprima os valores que são inferiores a esta média.
     public static void mediaVinte(int[] valores) {
         
+        int soma = 0;
+
+        for (int i = 0; i < valores.length; i++) {
+            soma += valores[i];
+        }
+
+        double media = soma / valores.length;
+
+        for (int i = 0; i < valores.length; i++) {
+            if (valores[i] < media) {
+                System.out.println("O valor " + valores[i] + " é menor que a média");
+            }
+        }
     }
 
     public static void detetive() {
