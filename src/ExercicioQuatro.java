@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class ExercicioQuatro {
     public static void call(Scanner scanner) {
-        System.out.println("=== EXERCÍCIOS - LISTA 3 ===");
+        System.out.println("=== EXERCÍCIOS - LISTA 4 ===");
 
         //1) Crie um programa que questione a quantidade de notas a ser informada, receba as notas e calcule a média. 
         //2) Crie um programa que imprima um arrays com Foreach. 
@@ -85,7 +85,8 @@ public class ExercicioQuatro {
                 break;
             // 5) Crie um programa que possua uma collection que represente as 52 cartas do baralho, imrpima elas.
             case 5:
-                // baralho();
+                System.out.println("Cartas do Baralho");
+                baralho();
                 break;
             // 6) Crie um programa que una duas listas de inteiros.
             case 6:
@@ -118,7 +119,8 @@ public class ExercicioQuatro {
              - Atendimento normal
              - Atendimento preferencial 
              */
-            case 7:
+            case 7:    
+                
                 // filaBanco();
                 break;
             // 8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano.
@@ -197,7 +199,32 @@ public class ExercicioQuatro {
     }
     // 5) Crie um programa que possua uma collection que represente as 52 cartas do baralho, imprima elas.
     public static SortedSet<String> baralho() {
-        return new TreeSet<String>();
+
+        SortedSet<String> naipes = new TreeSet<>();
+        naipes.add("Paus");
+        naipes.add("Copas");
+        naipes.add("Ouros");
+        naipes.add("Espadas");
+
+        SortedSet<String> cartas = new TreeSet<>();
+        cartas.add("Ás");
+        cartas.add("Valete");
+        cartas.add("Dama");
+        cartas.add("Rei");
+
+        for (int i = 2; i <= 10; i++) {
+            cartas.add(String.valueOf(i));
+        }
+        
+        SortedSet<String> baralho = new TreeSet<>();
+        for (String naipe : naipes) {
+            for (String carta : cartas) {
+                baralho.add(carta + " de " + naipe);
+                System.out.println(carta + " de " + naipe);
+            }
+        }
+
+        return baralho;
     }
     // 6) Crie um programa que una duas listas de inteiros.
     public static Integer[] mergeIntList(int[] listaUm, int[] listaDois) {
