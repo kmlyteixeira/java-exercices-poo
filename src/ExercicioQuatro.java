@@ -1,24 +1,29 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.IntStream;
 
 public class ExercicioQuatro {
     public static void call(Scanner scanner) {
         System.out.println("=== EXERCÍCIOS - LISTA 4 ===");
 
-        //1) Crie um programa que questione a quantidade de notas a ser informada, receba as notas e calcule a média. 
-        //2) Crie um programa que imprima um arrays com Foreach. 
-        //3) Crie um programa que leia 10 valores double e salve em um array, depois imprima esses valores. 
-        //4) Crie um programa que leia 10 valores int e salve em um array, depois imprima se esses valores são pares ou ímpares. 
-        //5) Crie um programa que possua uma collection que represente as 52 cartas do baralho, imrpima elas. 
-        //6) Crie um programa que una duas listas de inteiros. 
-        //7) Crie um programa que simule a fila de atendimento de um banco. 
-        //8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano. 
-        //9) Crie dois arrays de 10 posições e depois gere um terceiro array com os valores intercalados desses dois arrays, ao final, imprima os 3. 
-        //10) Crie um programa que leia 20 valores, calcule a média aritmética desses valores e imprima os valores que são inferiores a esta média.
+        // 1) Crie um programa que questione a quantidade de notas a ser informada,
+        // receba as notas e calcule a média.
+        // 2) Crie um programa que imprima um arrays com Foreach.
+        // 3) Crie um programa que leia 10 valores double e salve em um array, depois
+        // imprima esses valores.
+        // 4) Crie um programa que leia 10 valores int e salve em um array, depois
+        // imprima se esses valores são pares ou ímpares.
+        // 5) Crie um programa que possua uma collection que represente as 52 cartas do
+        // baralho, imrpima elas.
+        // 6) Crie um programa que una duas listas de inteiros.
+        // 7) Crie um programa que simule a fila de atendimento de um banco.
+        // 8) Crie um programa que receba a temperatura média de cada mês do ano e após
+        // exiba a temperatura média do ano.
+        // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os
+        // valores intercalados desses dois arrays, ao final, imprima os 3.
+        // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses
+        // valores e imprima os valores que são inferiores a esta média.
 
         System.out.println("+-------------------------------------------------------+");
         System.out.println("| 1 -  Calculo de Media                                 |");
@@ -43,7 +48,8 @@ public class ExercicioQuatro {
         }
 
         switch (menu) {
-            // 1) Crie um programa que questione a quantidade de notas a ser informada, receba as notas e calcule a média.
+            // 1) Crie um programa que questione a quantidade de notas a ser informada,
+            // receba as notas e calcule a média.
             case 1:
                 System.out.println("Qual a quantidade de notas a ser informada?");
                 int quantidadeNotas = scanner.nextInt();
@@ -59,9 +65,10 @@ public class ExercicioQuatro {
                 break;
             // 2) Crie um programa que imprima um arrays com Foreach.
             case 2:
-                printArray(new String[]{ "Teste", "imprimir", "foreach" });
+                printArray(new String[] { "Teste", "imprimir", "foreach" });
                 break;
-            // 3) Crie um programa que leia 10 valores double e salve em um array, depois imprima esses valores.
+            // 3) Crie um programa que leia 10 valores double e salve em um array, depois
+            // imprima esses valores.
             case 3:
                 double[] valoresDouble = new double[10];
 
@@ -72,7 +79,8 @@ public class ExercicioQuatro {
 
                 dezValores(valoresDouble);
                 break;
-            // 4) Crie um programa que leia 10 valores int e salve em um array, depois imprima se esses valores são pares ou ímpares.
+            // 4) Crie um programa que leia 10 valores int e salve em um array, depois
+            // imprima se esses valores são pares ou ímpares.
             case 4:
                 int valoresInt[] = new int[10];
 
@@ -83,7 +91,8 @@ public class ExercicioQuatro {
 
                 dezValoresInt(valoresInt);
                 break;
-            // 5) Crie um programa que possua uma collection que represente as 52 cartas do baralho, imrpima elas.
+            // 5) Crie um programa que possua uma collection que represente as 52 cartas do
+            // baralho, imrpima elas.
             case 5:
                 System.out.println("Cartas do Baralho");
                 baralho();
@@ -108,22 +117,23 @@ public class ExercicioQuatro {
                     System.out.println("Informe o valor " + (i + 1) + " da lista 1");
                     listaDois[i] = scanner.nextInt();
                 }
-                
+
                 System.out.println("Lista 1: " + Arrays.toString(listaUm));
                 System.out.println("Lista 2: " + Arrays.toString(listaDois));
                 System.out.println("Listas Unidas: " + Arrays.toString(mergeIntList(listaUm, listaDois)));
-                
+
                 break;
             // 7) Crie um programa que simule a fila de atendimento de um banco.
             /*
-             - Atendimento normal
-             - Atendimento preferencial 
+             * - Atendimento normal
+             * - Atendimento preferencial
              */
-            case 7:    
-                
-                // filaBanco();
+            case 7:
+                System.out.println("Fila de Atendimento");
+                filaBanco();
                 break;
-            // 8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano.
+            // 8) Crie um programa que receba a temperatura média de cada mês do ano e após
+            // exiba a temperatura média do ano.
             case 8:
                 double[] temperaturas = new double[12];
 
@@ -134,7 +144,8 @@ public class ExercicioQuatro {
 
                 System.out.println("A temperatura média do ano é: " + temperaturaMedia(temperaturas));
                 break;
-            // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os valores intercalados desses dois arrays, ao final, imprima os 3.
+            // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os
+            // valores intercalados desses dois arrays, ao final, imprima os 3.
             case 9:
                 int[] arrayUm = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                 int[] arrayDois = new int[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
@@ -144,7 +155,8 @@ public class ExercicioQuatro {
                 System.out.println("Array 3: " + Arrays.toString(alternarArray(arrayUm, arrayDois)));
 
                 break;
-            // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses valores e imprima os valores que são inferiores a esta média.
+            // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses
+            // valores e imprima os valores que são inferiores a esta média.
             case 10:
                 int[] valores = new int[20];
 
@@ -156,16 +168,17 @@ public class ExercicioQuatro {
                 break;
             // DESAFIO
             case 11:
-                // detetive();
+                detetive();
                 break;
-        
+
             default:
                 System.out.println("Operação inválida");
                 break;
         }
-    }   
+    }
 
-    // 1) Crie um programa que questione a quantidade de notas a ser informada, receba as notas e calcule a média.
+    // 1) Crie um programa que questione a quantidade de notas a ser informada,
+    // receba as notas e calcule a média.
     public static double calculaMedia(double[] notas) {
 
         double soma = 0;
@@ -177,17 +190,22 @@ public class ExercicioQuatro {
 
         return media;
     }
+
     // 2) Crie um programa que imprima um arrays com Foreach.
     public static void printArray(String[] array) {
         for (String string : array) {
             System.out.println(string);
         }
     }
-    // 3) Crie um programa que leia 10 valores double e salve em um array, depois imprima esses valores.
+
+    // 3) Crie um programa que leia 10 valores double e salve em um array, depois
+    // imprima esses valores.
     public static void dezValores(double[] valores) {
         System.out.println("Array de dez valores double:" + Arrays.toString(valores));
     }
-    // 4) Crie um programa que leia 10 valores int e salve em um array, depois imprima se esses valores são pares ou ímpares.
+
+    // 4) Crie um programa que leia 10 valores int e salve em um array, depois
+    // imprima se esses valores são pares ou ímpares.
     public static void dezValoresInt(int[] valores) {
         for (int i = 0; i < valores.length; i++) {
             if (valores[i] % 2 == 0) {
@@ -197,7 +215,9 @@ public class ExercicioQuatro {
             }
         }
     }
-    // 5) Crie um programa que possua uma collection que represente as 52 cartas do baralho, imprima elas.
+
+    // 5) Crie um programa que possua uma collection que represente as 52 cartas do
+    // baralho, imprima elas.
     public static SortedSet<String> baralho() {
 
         SortedSet<String> naipes = new TreeSet<>();
@@ -215,7 +235,7 @@ public class ExercicioQuatro {
         for (int i = 2; i <= 10; i++) {
             cartas.add(String.valueOf(i));
         }
-        
+
         SortedSet<String> baralho = new TreeSet<>();
         for (String naipe : naipes) {
             for (String carta : cartas) {
@@ -226,6 +246,7 @@ public class ExercicioQuatro {
 
         return baralho;
     }
+
     // 6) Crie um programa que una duas listas de inteiros.
     public static Integer[] mergeIntList(int[] listaUm, int[] listaDois) {
 
@@ -241,11 +262,67 @@ public class ExercicioQuatro {
 
         return mergeList;
     }
+
     // 7) Crie um programa que simule a fila de atendimento de um banco.
     public static void filaBanco() {
 
+        Scanner scanner = new Scanner(System.in);
+
+        SortedSet<String> ordemAtendimento = new TreeSet<>();
+
+        int senhaNormal = 0;
+        int senhaPrefencial = 0;
+        int tamanhoFila = 0;
+
+        System.out.println("Deseja entrar na fila? [1] Sim [2] Não");
+        int resposta = scanner.nextInt();
+
+        do {
+            System.out.println("Qual o tipo de atendimento? [1] NORMAL ou [2] PREFERENCIAL");
+            int tipoAtendimento = scanner.nextInt();
+
+            if (tipoAtendimento == 1) {
+                senhaNormal++;
+                ordemAtendimento.add("N" + senhaNormal);
+                tamanhoFila++;
+            } else if (tipoAtendimento == 2) {
+                senhaPrefencial++;
+                ordemAtendimento.add("A" + senhaPrefencial);                
+                tamanhoFila++;
+            } else {
+                System.out.println("Opção inválida");
+            }
+
+            System.out.println("Deseja entrar na fila? [1] Sim [2] Não");
+            resposta = scanner.nextInt();
+
+        } while (resposta == 1);
+
+        System.out.println("Chamar o próximo da fila? [1] Sim [2] Não");
+        int chamarProximo = scanner.nextInt();
+
+        do {
+            if (chamarProximo == 1) {
+                System.out.println("Próximo da fila: " + ordemAtendimento.first());
+                ordemAtendimento.remove(ordemAtendimento.first());
+                tamanhoFila--;
+            } else {
+                System.out.println("Fila de atendimento: " + ordemAtendimento);
+            }
+
+            System.out.println("Chamar o próximo da fila? [1] Sim [2] Não");
+            chamarProximo = scanner.nextInt();
+
+        } while ((chamarProximo == 1)&&(tamanhoFila > 0));
+
+        System.out.println("Atendimento Encerrado!");
+
+        scanner.close();
+
     }
-    // 8) Crie um programa que receba a temperatura média de cada mês do ano e após exiba a temperatura média do ano.
+
+    // 8) Crie um programa que receba a temperatura média de cada mês do ano e após
+    // exiba a temperatura média do ano.
     public static double temperaturaMedia(double[] temperaturas) {
 
         double soma = 0;
@@ -257,7 +334,9 @@ public class ExercicioQuatro {
 
         return media;
     }
-    // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os valores intercalados desses dois arrays, ao final, imprima os 3.
+
+    // 9) Crie dois arrays de 10 posições e depois gere um terceiro array com os
+    // valores intercalados desses dois arrays, ao final, imprima os 3.
     public static int[] alternarArray(int[] listaUm, int[] listaDois) {
 
         int[] arrayTres = new int[listaUm.length + listaDois.length];
@@ -269,9 +348,11 @@ public class ExercicioQuatro {
 
         return arrayTres;
     }
-    // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses valores e imprima os valores que são inferiores a esta média.
+
+    // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses
+    // valores e imprima os valores que são inferiores a esta média.
     public static void mediaVinte(int[] valores) {
-        
+
         int soma = 0;
 
         for (int i = 0; i < valores.length; i++) {
@@ -288,6 +369,47 @@ public class ExercicioQuatro {
     }
 
     public static void detetive() {
-        
+
+        Scanner scanner = new Scanner(System.in);
+
+        int[] respostas = new int[5];
+
+        System.out.println("Responda as perguntas com [1] SIM ou [2] NÃO");
+
+        System.out.println("Telefonou para a vítima?");
+        respostas[0] = scanner.nextInt();
+
+        System.out.println("Esteve no local do crime?");
+        respostas[1] = scanner.nextInt();
+
+        System.out.println("Mora perto da vítima?");
+        respostas[2] = scanner.nextInt();
+
+        System.out.println("Devia para a vítima?");
+        respostas[3] = scanner.nextInt();
+
+        System.out.println("Já trabalhou com a vítima?");
+        respostas[4] = scanner.nextInt();
+
+        int contador = 0;
+
+        for (int i = 0; i < respostas.length; i++) {
+            if (respostas[i] == 1) {
+                contador++;
+            }
+        }
+
+        if (contador == 2) {
+            System.out.println("Suspeita");
+        } else if (contador == 3 || contador == 4) {
+            System.out.println("Cúmplice");
+        } else if (contador == 5) {
+            System.out.println("Assassino");
+        } else {
+            System.out.println("Inocente");
+        }
+
+        scanner.close();
+
     }
 }
