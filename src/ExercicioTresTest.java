@@ -57,7 +57,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void lerArquivoTextoTest() throws URISyntaxException {
+    public void lerArquivoTextoTest() throws URISyntaxException, FileNotFoundException {
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/arquivo_para_leitura.txt").toURI());
             ExercicioTres.lerArquivoTexto(file.toPath().toString());
@@ -97,7 +97,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void hasJavaTest() throws URISyntaxException {
+    public void hasJavaTest() throws URISyntaxException, FileNotFoundException {
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/have_java.txt").toURI());
             assertEquals(true, ExercicioTres.hasJava(file.toPath().toString()));
@@ -110,7 +110,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void dezDigitosTest() throws URISyntaxException {
+    public void dezDigitosTest() throws URISyntaxException, FileNotFoundException {
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/arquivo_para_leitura.txt").toURI());
             ExercicioTres.dezDigitos(file.toPath().toString());
@@ -126,7 +126,7 @@ public class ExercicioTresTest {
     }
 
     @Test
-    public void somaValoresArquivo() throws URISyntaxException{
+    public void somaValoresArquivo() throws URISyntaxException, FileNotFoundException{
         try {
             File file = new File(getClass().getClassLoader().getResource("archives/soma_valores.txt").toURI());
             assertEquals(10, ExercicioTres.somaValoresArquivo(file.toPath().toString()), 0.0003f);
