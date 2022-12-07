@@ -47,7 +47,7 @@ public class ExercicioTres {
             // 2) Crie um programa que leia e imprima no console todas as linhas de um arquivo de texto.
             case 2:
                 System.out.println("Lendo arquivo de texto na pasta \\txt");
-                String arquivo = "C:\\Users\\kemily.rosa\\Documents\\java-exercices-poo\\txt\\exercicio_tres_tabuada.txt";
+                String arquivo = "src/archives/arquivo_para_leitura.txt";
                 lerArquivoTexto(arquivo);
 
                 break;
@@ -140,7 +140,7 @@ public class ExercicioTres {
 
     public static void tabuada(int numero) throws IOException {
 
-        FileWriter arquivo = new FileWriter("C:\\Users\\kemily.rosa\\Documents\\java-exercices-poo\\txt\\exercicio_tres_tabuada.txt");
+        FileWriter arquivo = new FileWriter("exercicio_tres_tabuada.txt");
         PrintWriter gravarArquivo = new PrintWriter(arquivo);
         
         int[] tabuada = new int[10];
@@ -155,11 +155,13 @@ public class ExercicioTres {
     public static void lerArquivoTexto(String arquivo) throws FileNotFoundException {
 
         Scanner arq = new Scanner(new FileReader(arquivo));
-        
+        String linha = "";
+
         while (arq.hasNextLine()) {
-            String linha = arq.nextLine();
-            System.out.println(linha);
+            linha = arq.nextLine();
+            System.out.print(linha + "\n");
         }
+
     }
 
     public static int[] operacoesBasicas(int numeroUm, int numeroDois) {
@@ -219,12 +221,12 @@ public class ExercicioTres {
     public static void dezDigitos(String arquivo) throws FileNotFoundException {
 
         Scanner text = new Scanner(new FileReader(arquivo));
-
+        String linha = "";
         while (text.hasNextLine()) {
-            String linha = text.nextLine().substring(0, 10);
-            System.out.println(linha.substring(0, 10));
+            linha = linha + text.nextLine();
         }
         
+        System.out.print(linha.substring(0, 9) + "\n");
     }
 
     public static double calculaArea(double numeroUm, double numeroDois) {

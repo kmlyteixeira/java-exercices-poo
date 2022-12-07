@@ -65,7 +65,7 @@ public class ExercicioQuatro {
                 break;
             // 2) Crie um programa que imprima um arrays com Foreach.
             case 2:
-                printArray(new String[] { "Teste", "imprimir", "foreach" });
+                printArray(new String[] { "Teste", "print", "foreach" });
                 break;
             // 3) Crie um programa que leia 10 valores double e salve em um array, depois
             // imprima esses valores.
@@ -194,14 +194,18 @@ public class ExercicioQuatro {
     // 2) Crie um programa que imprima um arrays com Foreach.
     public static void printArray(String[] array) {
         for (String string : array) {
-            System.out.println(string);
+            System.out.print(string + "\n");
         }
     }
 
     // 3) Crie um programa que leia 10 valores double e salve em um array, depois
     // imprima esses valores.
     public static void dezValores(double[] valores) {
-        System.out.println("Array de dez valores double:" + Arrays.toString(valores));
+
+        for (double d : valores) {
+            System.out.print(d + "\n");
+        }
+
     }
 
     // 4) Crie um programa que leia 10 valores int e salve em um array, depois
@@ -209,9 +213,9 @@ public class ExercicioQuatro {
     public static void dezValoresInt(int[] valores) {
         for (int i = 0; i < valores.length; i++) {
             if (valores[i] % 2 == 0) {
-                System.out.println("O valor " + valores[i] + " é par");
+                System.out.print("Par" + "\n");
             } else {
-                System.out.println("O valor " + valores[i] + " é ímpar");
+                System.out.print("Ímpar" + "\n");
             }
         }
     }
@@ -223,24 +227,24 @@ public class ExercicioQuatro {
         SortedSet<String> naipes = new TreeSet<>();
         naipes.add("Paus");
         naipes.add("Copas");
-        naipes.add("Ouros");
         naipes.add("Espadas");
+        naipes.add("Ouros");
 
         SortedSet<String> cartas = new TreeSet<>();
-        cartas.add("Ás");
-        cartas.add("Valete");
-        cartas.add("Dama");
-        cartas.add("Rei");
+        cartas.add("A");
+        cartas.add("J");
+        cartas.add("Q");
+        cartas.add("K");
 
-        for (int i = 2; i <= 10; i++) {
+        for (int i = 2; i < 10; i++) {
             cartas.add(String.valueOf(i));
         }
 
         SortedSet<String> baralho = new TreeSet<>();
         for (String naipe : naipes) {
             for (String carta : cartas) {
-                baralho.add(carta + " de " + naipe);
-                System.out.println(carta + " de " + naipe);
+                baralho.add(naipe + " " + carta);
+                System.out.println(naipe + " " + carta);
             }
         }
 
@@ -339,14 +343,14 @@ public class ExercicioQuatro {
     // valores intercalados desses dois arrays, ao final, imprima os 3.
     public static int[] alternarArray(int[] listaUm, int[] listaDois) {
 
-        int[] arrayTres = new int[listaUm.length + listaDois.length];
+        int[] listaTres = new int[listaUm.length + listaDois.length];
 
-        for (int i = 0; i < arrayTres.length; i++) {
-            arrayTres[i] = listaUm[i];
-            arrayTres[i + 1] = listaDois[i];
+        for (int i = 0; i < 10; i++) {
+            listaTres[i * 2] = listaUm[i];
+            listaTres[i * 2 + 1] = listaDois[i];
         }
-
-        return arrayTres;
+        
+        return listaTres;
     }
 
     // 10) Crie um programa que leia 20 valores, calcule a média aritmética desses
@@ -362,8 +366,8 @@ public class ExercicioQuatro {
         double media = soma / valores.length;
 
         for (int i = 0; i < valores.length; i++) {
-            if (valores[i] < media) {
-                System.out.println("O valor " + valores[i] + " é menor que a média");
+            if (valores[i] <= media) {
+                System.out.print(valores[i] + "\n");
             }
         }
     }
